@@ -1,0 +1,433 @@
+:root {
+    --lime: hsl(61, 70%, 52%);
+    --red: hsl(4, 69%, 50%);
+    --white: hsl(0, 0%, 100%);
+    --slate-100: hsl(202, 86%, 94%);
+    --slate-300: hsl(203, 41%, 72%);
+    --slate-500: hsl(200, 26%, 54%);
+    --slate-700: hsl(200, 24%, 40%);
+    --slate-900: hsl(202, 55%, 16%);
+}/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: hsl(202, 86%, 94%);
+  color: hsl(202, 55%, 16%);
+  min-height: 100vh;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.calculator {
+  width: 90%;
+  max-width: 1000px;
+  margin: 100px auto 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.calculator-section {
+  padding: 40px;
+}
+
+.calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.calculator-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#clearBtn {
+  border: none;
+  background: transparent;
+  color: hsl(200, 26%, 54%);
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group > label {
+  display: block;
+  margin-bottom: 10px;
+  color: hsl(200, 24%, 40%);
+  font-size: 14px;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.input-group {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border: 1px solid hsl(203, 41%, 72%);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.input-group:focus-within {
+  border: 2px solid hsl(61, 70%, 52%);
+}
+
+.input-group span {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background-color: hsl(202, 86%, 94%);
+  color: hsl(200, 24%, 40%);
+  font-weight: 700;
+}
+
+.input-group input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 15px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: hsl(202, 55%, 16%);
+}
+
+
+/* =========================
+   TERM + RATE
+========================= */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+
+/* =========================
+   RADIO OPTIONS
+========================= */
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 15px;
+  margin-bottom: 10px;
+  border: 1px solid hsl(203, 41%, 72%);
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  color: hsl(202, 55%, 16%);
+}
+.radio-option:has(input:checked) {
+  background-color: hsl(61, 70%, 52%);
+  border-color: hsl(61, 70%, 52%);
+}
+}
+
+.radio-option input {
+  width: 16px;
+  height: 16px;
+  accent-color: hsl(61, 70%, 52%);
+}
+
+
+/* =========================
+   CALCULATE BUTTON
+========================= */
+
+.calculate-btn {
+  width: 100%;
+  margin-top: 5px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 30px;
+  background-color: hsl(61, 70%, 52%);
+  color: hsl(202, 55%, 16%);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.calculate-btn:hover {
+  opacity: 0.85;
+}
+
+
+/* =========================
+   ERRORS
+========================= */
+
+.error {
+  color: hsl(4, 69%, 50%);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.results-section {
+  padding: 40px;
+  background-color: hsl(202, 55%, 16%);
+  color: white;
+  border-radius: 0 0 0 70px;
+}
+
+.results-section h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.results-section p {
+  color: hsl(203, 41%, 72%);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* EMPTY RESULTS */
+
+#emptyResults img {
+  display: block;
+  width: 150px;
+  margin: 20px auto;
+}
+
+#emptyResults h2 {
+  text-align: center;
+}
+
+
+/* =========================
+   COMPLETED RESULTS
+========================= */
+
+.hidden {
+  display: none;
+}
+
+.result-box {
+  margin-top: 30px;
+  padding: 25px;
+  background-color: hsl(202, 55%, 16%);
+  border-top: 4px solid hsl(61, 70%, 52%);
+  border-radius: 8px;
+}
+
+.result-box p {
+  margin-bottom: 8px;
+}
+
+.result-box h3 {
+  color: hsl(61, 70%, 52%);
+  font-size: 36px;
+  margin-bottom: 25px;
+}
+
+.result-box hr {
+  border: none;
+  border-top: 1px solid hsl(200, 24%, 40%);
+  margin-bottom: 20px;
+}
+
+.result-box h4 {
+  color: white;
+  font-size: 22px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.attribution {
+  text-align: center;
+  font-size: 11px;
+  margin-bottom: 20px;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  body {
+    background-color: white;
+  }
+
+  .calculator {
+    width: 100%;
+    margin: 0;
+    display: block;
+    border-radius: 0;
+  }
+
+  .calculator-section {
+    padding: 25px;
+  }
+
+  .calculator-header {
+    margin-bottom: 30px;
+  }
+
+  .calculator-header h1 {
+    font-size: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .results-section {
+    padding: 30px 25px;
+    border-radius: 0;
+  }
+
+  .result-box h3 {
+    font-size: 30px;
+  }
+
+  .attribution {
+    display: none;
+  }
+
+#result {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f4f7fb;
+    border-radius: 12px;
+    border: 1px solid #dce3ed;
+    color: #222;
+}
+
+#result h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+#result p {
+    margin: 12px 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Validation Error Messages */
+
+.error-message {
+    color: #d93025;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Highlight invalid input fields */
+
+input:invalid {
+    border-color: #d93025;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4c6ef5;
+}
+
+/* Hide empty sections */
+
+.hidden {
+    display: none;
+}
+
+/* Mobile Responsiveness */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    input,
+    select,
+    button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #completedResults,
+    #emptyResults {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #result {
+        padding: 15px;
+    }
+}
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h1, h2, h3, button {
+    font-weight: 700;
+}
